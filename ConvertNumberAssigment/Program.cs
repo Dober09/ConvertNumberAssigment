@@ -2,6 +2,8 @@
 using Single = ConvertNumberAssigment.Single;
 using Triple = ConvertNumberAssigment.Triple;
 using Teen = ConvertNumberAssigment.Teen;
+using ConvertNumberAssigment;
+using System.Runtime.CompilerServices;
 
 namespace ConvertNumberAssignment
 {
@@ -36,9 +38,10 @@ namespace ConvertNumberAssignment
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
+         
         public static string ConvertToWord(string number ) {
 
-            string toWord = "";
+            
             
             int digit = DigitLength(number);
             if (digit == 4) {
@@ -47,29 +50,7 @@ namespace ConvertNumberAssignment
                 int thirdDigit = ConvertToInt(number[2].ToString());
                 int fourthDigit = ConvertToInt(number[3].ToString());
 
-                if (firstDigit > 0 && firstDigit <= 9)
-                {
-                    toWord = $"{(Single)firstDigit} {Triple.thousand}";
-                }
-                
-                if (secondDigit > 0 && secondDigit <= 9)
-                {
-                    toWord += $" {(Single)secondDigit} {Triple.hundred}";
-                }
-
-                if (thirdDigit == 0)
-                {
-                    toWord += $" {(fourthDigit != 0 ? (Single)fourthDigit : "")}";
-                }
-                else if (thirdDigit == 1)
-                {
-                    toWord += $" {(fourthDigit == 0 ? (Single.ten) : (Double)fourthDigit - 1)}";
-                }
-                else
-                {
-                    toWord += $" {(Teen)thirdDigit - 2} - {(fourthDigit == 0 ? "" : (Single)fourthDigit)}";
-                }
-
+                return new ConvertLogic().Logic(firstDigit, secondDigit, thirdDigit, fourthDigit);
 
             }
 
@@ -82,23 +63,7 @@ namespace ConvertNumberAssignment
              
 
 
-                if (oneNum >0 && oneNum <= 10)
-                {
-                    toWord = $"{(Single)oneNum} {Triple.hundred}";  
-                }
-
-                if ( twoNum == 0)
-                {
-                    toWord += $" {(threeNum!=0 ?(Single)threeNum:"")}" ;
-                }
-                else if ( twoNum == 1) 
-                {
-                    toWord += $" {(threeNum==0?(Single.ten):(Double)threeNum-1)}";
-                }
-                else
-                {
-                    toWord += $" {(Teen)twoNum - 2}- {(threeNum==0?"":(Single)threeNum)}";
-                }
+               return  new ConvertLogic().Logic(threeNum, oneNum, twoNum);
                
             
             }
@@ -108,20 +73,7 @@ namespace ConvertNumberAssignment
                 int firstDigit = ConvertToInt(number[0].ToString());
                 int secondDigit = ConvertToInt(number[1].ToString());
 
-                if (firstDigit == 0)
-                {
-                    toWord = $"{(Single)secondDigit}";
-                }
-
-                if (firstDigit == 1)
-                {
-                    toWord = $"{(Double)( firstDigit - 1)}";
-                }
-                else
-                {
-                    toWord += $"{(Teen)firstDigit - 2} {( secondDigit == 0 ? "" : (Single)secondDigit)}";
-                }
-
+                return new ConvertLogic().Logic(firstDigit, secondDigit);
 
 
             }
@@ -130,10 +82,10 @@ namespace ConvertNumberAssignment
             
 
                     int firstDigit = ConvertToInt(number[0].ToString());
-                    toWord = $"{(Single)firstDigit }";
+                    return new ConvertLogic().Logic(firstDigit);
             }
 
-            return toWord;
+            return $"The is no conversion for {number} for now";
            
         }
 
