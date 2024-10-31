@@ -1,9 +1,6 @@
-﻿using Double = ConvertNumberAssigment.Double;
-using Single = ConvertNumberAssigment.Single;
-using Triple = ConvertNumberAssigment.Triple;
-using Teen = ConvertNumberAssigment.Teen;
+﻿
 using ConvertNumberAssigment;
-using System.Runtime.CompilerServices;
+
 
 namespace ConvertNumberAssignment
 {
@@ -63,7 +60,7 @@ namespace ConvertNumberAssignment
              
 
 
-               return  new ConvertLogic().Logic(threeNum, oneNum, twoNum);
+               return  new ConvertLogic().Logic(oneNum,twoNum,threeNum);
                
             
             }

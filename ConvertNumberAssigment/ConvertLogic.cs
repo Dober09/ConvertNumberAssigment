@@ -56,7 +56,7 @@ namespace ConvertNumberAssigment
         public string Logic(int firstDigit, int secondDigit , int thirdDigit)
         {
 
-            if (firstDigit > 0 && firstDigit <= 10)
+            if (firstDigit > 0 && firstDigit <= 9)
             {
                 toWord = $"{(Single)firstDigit} {Triple.hundred}";
             }
@@ -71,7 +71,7 @@ namespace ConvertNumberAssigment
             }
             else
             {
-                toWord += $" {(Teen)secondDigit - 2}- {(thirdDigit == 0 ? "" : (Single)thirdDigit)}";
+                toWord += $" {(Teen)secondDigit - 2} - {(thirdDigit == 0 ? "" : (Single)thirdDigit)}";
             }
 
             return this.toWord ;
