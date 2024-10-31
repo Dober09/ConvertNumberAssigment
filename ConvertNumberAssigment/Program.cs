@@ -19,7 +19,7 @@ namespace ConvertNumberAssignment
 
 
         /// <summary>
-        /// 
+        /// convert strings to int
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
@@ -31,7 +31,7 @@ namespace ConvertNumberAssignment
         }
 
         /// <summary>
-        /// 
+        /// the progrem resides in here
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
@@ -91,10 +91,7 @@ namespace ConvertNumberAssignment
         {
 
             Console.WriteLine("Convert numbers to spoken words (text):\nCan only needs to support 4 digits.\nEnter the digit : ");
-             string numberString = Console.ReadLine();
-
-         
-
+            string numberString = Console.ReadLine();
 
             Console.WriteLine(ConvertToWord(numberString));
 
